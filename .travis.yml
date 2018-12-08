@@ -1,7 +1,7 @@
 sudo: required
 language: java
 install: true
-script: mvn -l clean package install
+script: mvn clean package install
 services:
   - docker
 deploy:
