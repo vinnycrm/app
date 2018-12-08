@@ -1,0 +1,16 @@
+sudo: required
+language: java
+install: true
+script: mvn -l clean package install
+services:
+  - docker
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  skip_cleanup: true
+  on:
+    branch: master
+after_success:
+  - echo $TRAVIS_BUILD_NUMBER
+addons:
+  artifacts: true
